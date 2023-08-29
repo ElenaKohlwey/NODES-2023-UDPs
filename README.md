@@ -1,2 +1,2 @@
 # NODES-2023-UDPs
-This repository contains the UPDs that I mention / show during my NODES 2023 talk.
+This repository contains the UDPs that I mention / show during my NODES 2023 talk.
