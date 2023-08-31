@@ -10,9 +10,13 @@ import org.neo4j.graphdb.RelationshipType;
  */
 public class Precedes {
 
+  public static final String TYPE_NAME = "PRECEDES";
   public static final RelationshipType PRECEDES_TYPE = RelationshipType.withName(
-    "PRECEDES"
+    TYPE_NAME
   );
+
+  // private constructor
+  private Precedes() {}
 
   /**
    * This method creates a new PRECEDES relationship in the database
@@ -20,7 +24,7 @@ public class Precedes {
    * @param end: end node of the new relationship
    * @return the new relationship
    */
-  public Relationship createPrecedesRelationship(Node start, Node end) {
+  public static Relationship createRelationship(Node start, Node end) {
     return start.createRelationshipTo(end, PRECEDES_TYPE);
   }
 }
