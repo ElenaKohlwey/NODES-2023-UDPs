@@ -149,10 +149,20 @@ public class Config {
 
   // endregion
 
+  /**
+   * This method validates whether
+   * a) all required properties exist on the configNode and
+   * b) whether a min value for a property is not greater than
+   * the respective max value.
+   * @param configNode: node that needs validation
+   * @return Message on successful validation or missing or
+   * violated properties.
+   */
   public static String validate(Node configNode) {
     HashSet<String> existenceViolations = new HashSet<>();
     HashSet<String[]> valueViolations = new HashSet<>();
 
+    // put all property keys into a HashSet
     HashSet<String[]> propertyKeys = new HashSet<>();
     propertyKeys.add(
       new String[] { ACTION_COUNT_MIN_KEY, ACTION_COUNT_MAX_KEY }
@@ -176,10 +186,12 @@ public class Config {
     Object minValue;
     Object maxValue;
 
+    // check all property keys for existence and compliance
     for (String[] minMaxPair : propertyKeys) {
       String minKey = minMaxPair[0];
       String maxKey = minMaxPair[1];
 
+      // check for existence of a min key
       try {
         minValue = configNode.getProperty(minKey);
       } catch (Exception e) {
@@ -187,6 +199,7 @@ public class Config {
         minValue = null;
       }
 
+      // check for existence of the respective max key
       try {
         maxValue = configNode.getProperty(maxKey);
       } catch (Exception e) {
@@ -194,6 +207,7 @@ public class Config {
         maxValue = null;
       }
 
+      // check for min being <= max
       if (
         minValue != null &&
         maxValue != null &&
@@ -203,6 +217,7 @@ public class Config {
       }
     }
 
+    // if any violations were found construct error message to be returned
     if (existenceViolations.isEmpty() && valueViolations.isEmpty()) {
       return VALIDATION_PASSED;
     } else {
