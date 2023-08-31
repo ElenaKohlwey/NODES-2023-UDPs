@@ -37,50 +37,50 @@ public class Config {
 
   // region getters
 
-  public static long getActionCountMin(Node configNode) {
+  public static long actionCountMin(Node configNode) {
     return (long) configNode.getProperty(ACTION_COUNT_MIN_KEY, Long.MIN_VALUE);
   }
 
-  public static long getActionCountMax(Node configNode) {
+  public static long actionCountMax(Node configNode) {
     return (long) configNode.getProperty(ACTION_COUNT_MAX_KEY, Long.MIN_VALUE);
   }
 
-  public static long getActionDurationMin(Node configNode) {
+  public static long actionDurationMin(Node configNode) {
     return (long) configNode.getProperty(
       ACTION_DURATION_MIN_KEY,
       Long.MIN_VALUE
     );
   }
 
-  public static long getActionDurationMax(Node configNode) {
+  public static long actionDurationMax(Node configNode) {
     return (long) configNode.getProperty(
       ACTION_DURATION_MAX_KEY,
       Long.MIN_VALUE
     );
   }
 
-  public static long getStartingNodesCountMin(Node configNode) {
+  public static long startingNodesCountMin(Node configNode) {
     return (long) configNode.getProperty(
       STARTING_NODES_COUNT_MIN_KEY,
       Long.MIN_VALUE
     );
   }
 
-  public static long getStartingNodesCountMax(Node configNode) {
+  public static long startingNodesCountMax(Node configNode) {
     return (long) configNode.getProperty(
       STARTING_NODES_COUNT_MAX_KEY,
       Long.MIN_VALUE
     );
   }
 
-  public static long getOutgoingRelationsCountMin(Node configNode) {
+  public static long outgoingRelationsCountMin(Node configNode) {
     return (long) configNode.getProperty(
       OUTGOING_RELATIONS_COUNT_MIN_KEY,
       Long.MIN_VALUE
     );
   }
 
-  public static long getOutgoingRelationsCountMax(Node configNode) {
+  public static long outgoingRelationsCountMax(Node configNode) {
     return (long) configNode.getProperty(
       OUTGOING_RELATIONS_COUNT_MAX_KEY,
       Long.MIN_VALUE

@@ -112,20 +112,20 @@ public class ConfigObject {
       throw new IllegalArgumentException(validationMessage);
     }
     this.setActionCount(
-        Config.getActionCountMin(configNode),
-        Config.getActionCountMax(configNode)
+        Config.actionCountMin(configNode),
+        Config.actionCountMax(configNode)
       )
       .setActionDuration(
-        Config.getActionDurationMin(configNode),
-        Config.getActionDurationMax(configNode)
+        Config.actionDurationMin(configNode),
+        Config.actionDurationMax(configNode)
       )
       .setStartingNodesCount(
-        Config.getStartingNodesCountMin(configNode),
-        Config.getStartingNodesCountMax(configNode)
+        Config.startingNodesCountMin(configNode),
+        Config.startingNodesCountMax(configNode)
       )
       .setOutgoingRelationsCount(
-        Config.getOutgoingRelationsCountMin(configNode),
-        Config.getOutgoingRelationsCountMax(configNode)
+        Config.outgoingRelationsCountMin(configNode),
+        Config.outgoingRelationsCountMax(configNode)
       );
   }
 
