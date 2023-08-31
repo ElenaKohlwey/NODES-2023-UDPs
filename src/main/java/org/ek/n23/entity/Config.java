@@ -1,6 +1,7 @@
 package org.ek.n23.entity;
 
 import java.util.HashSet;
+import org.ek.n23.utility.MinMax;
 import org.neo4j.graphdb.Label;
 import org.neo4j.graphdb.Node;
 
@@ -208,11 +209,9 @@ public class Config {
       }
 
       // check for min being <= max
-      if (
-        minValue != null &&
-        maxValue != null &&
-        (long) minValue > (long) maxValue
-      ) {
+      try {
+        new MinMax<Long>((long) minValue, (long) maxValue);
+      } catch (IllegalArgumentException e) {
         valueViolations.add(minMaxPair);
       }
     }
