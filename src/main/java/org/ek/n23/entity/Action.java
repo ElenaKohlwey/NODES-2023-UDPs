@@ -38,7 +38,7 @@ public class Action {
    */
   public static Node createNode(Transaction tx, String name, long duration) {
     // create node in db
-    Node newNode = tx.createNode();
+    Node newNode = tx.createNode(LABEL);
 
     // sets properties
     newNode.setProperty(NAME_KEY, name);
