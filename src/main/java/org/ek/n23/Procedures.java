@@ -360,14 +360,18 @@ public class Procedures {
 
     // create relationships
     for (int i = 0; i < numberOutgoingRels; i++) {
-      Node toNode = RandomNumbers.getRandomElement(
-        random,
-        possibleSuccessorNodes
-      );
+      if (possibleSuccessorNodes.isEmpty()) {
+        break;
+      } else {
+        Node toNode = RandomNumbers.getRandomElement(
+          random,
+          possibleSuccessorNodes
+        );
 
-      Precedes.createRelationship(currentNode, toNode);
-      possibleSuccessorNodes.remove(toNode);
-      newSuccessors.add(toNode);
+        Precedes.createRelationship(currentNode, toNode);
+        possibleSuccessorNodes.remove(toNode);
+        newSuccessors.add(toNode);
+      }
     }
 
     return newSuccessors;
