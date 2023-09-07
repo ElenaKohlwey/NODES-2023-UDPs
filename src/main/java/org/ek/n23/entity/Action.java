@@ -23,6 +23,8 @@ public class Action {
   // Property keys of the Action node
   public static final String NAME_KEY = "name";
   public static final String DURATION_KEY = "duration";
+  public static final String EARLIEST_START_KEY = "earliestStart";
+  public static final String EARLIEST_FINISH_KEY = "earliestFinish";
 
   // takes a number and returns LABEL_NAME + number as a String
   public static String transformToNodeName(int number) {
@@ -50,12 +52,32 @@ public class Action {
 
   // region getters
 
-  public String getName(Node actionNode) {
+  public static String getName(Node actionNode) {
     return (String) actionNode.getProperty(NAME_KEY, "");
   }
 
-  public long getDuration(Node actionNode) {
+  public static long getDuration(Node actionNode) {
     return (long) actionNode.getProperty(DURATION_KEY, Long.MIN_VALUE);
+  }
+
+  public static long getEarliestStart(Node actionNode) {
+    return (long) actionNode.getProperty(EARLIEST_START_KEY, Long.MIN_VALUE);
+  }
+
+  public static long getEarliestFinish(Node actionNode) {
+    return (long) actionNode.getProperty(EARLIEST_FINISH_KEY, Long.MIN_VALUE);
+  }
+
+  // endregion
+
+  // region setters
+
+  public static void setEarliestStart(Node actionNode, long value) {
+    actionNode.setProperty(EARLIEST_START_KEY, value);
+  }
+
+  public static void setEarliestFinish(Node actionNode, long value) {
+    actionNode.setProperty(EARLIEST_FINISH_KEY, value);
   }
 
   // endregion
