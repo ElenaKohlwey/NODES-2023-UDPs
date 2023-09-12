@@ -24,7 +24,7 @@ class GenerateGraphFromConfigNodeTest extends TestBase {
 
   @Override
   protected Stream<Class<?>> procedureClasses() {
-    return Stream.of(Procedures.class);
+    return Stream.of(ProcedureGraphCreation.class);
   }
 
   @Override
@@ -102,7 +102,7 @@ class GenerateGraphFromConfigNodeTest extends TestBase {
       session.run(
         String.format(
           "CALL %s(%s,'%s') YIELD %s, %s, %s RETURN %s, %s, %s",
-          Procedures.ProcedureName.GENERATE_GRAPH_BY_SEED_AND_CONFIG,
+          ProcedureGraphCreation.ProcedureName.GENERATE_GRAPH_BY_SEED_AND_CONFIG,
           seed,
           conf.name(),
           Summary.NODES_MAP,

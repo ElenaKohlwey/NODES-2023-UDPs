@@ -25,12 +25,14 @@ import org.neo4j.procedure.Procedure;
  *
  * @author Elena Kohlwey
  */
-public class Procedures {
+public class ProcedureGraphCreation {
 
   @Context
   public Transaction tx;
 
-  private static Logger logger = Logger.getLogger(Procedures.class.getName());
+  private static Logger logger = Logger.getLogger(
+    ProcedureGraphCreation.class.getName()
+  );
 
   protected static final String NO_SUCH_CONFIG =
     "There is no config object with that name";
