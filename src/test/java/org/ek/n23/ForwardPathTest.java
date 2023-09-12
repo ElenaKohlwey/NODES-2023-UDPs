@@ -15,7 +15,7 @@ import org.neo4j.driver.Record;
 import org.neo4j.driver.Session;
 
 /**
- * These tests verify the functionality of the forwardPathIntermediate
+ * These tests verify the functionality of the forwardPath
  * method. They are parameterized to make them lean but still
  * test everything.
  */

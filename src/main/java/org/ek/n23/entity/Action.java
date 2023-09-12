@@ -7,6 +7,7 @@ import org.ek.n23.utility.NodeComparer;
 import org.neo4j.graphdb.Direction;
 import org.neo4j.graphdb.Label;
 import org.neo4j.graphdb.Node;
+import org.neo4j.graphdb.NotFoundException;
 import org.neo4j.graphdb.Relationship;
 import org.neo4j.graphdb.Transaction;
 
@@ -60,12 +61,14 @@ public class Action {
     return (long) actionNode.getProperty(DURATION_KEY, Long.MIN_VALUE);
   }
 
-  public static long getEarliestStart(Node actionNode) {
-    return (long) actionNode.getProperty(EARLIEST_START_KEY, Long.MIN_VALUE);
+  public static long getEarliestStart(Node actionNode)
+    throws NotFoundException {
+    return (long) actionNode.getProperty(EARLIEST_START_KEY);
   }
 
-  public static long getEarliestFinish(Node actionNode) {
-    return (long) actionNode.getProperty(EARLIEST_FINISH_KEY, Long.MIN_VALUE);
+  public static long getEarliestFinish(Node actionNode)
+    throws NotFoundException {
+    return (long) actionNode.getProperty(EARLIEST_FINISH_KEY);
   }
 
   // endregion

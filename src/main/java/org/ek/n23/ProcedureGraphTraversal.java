@@ -45,6 +45,10 @@ public class ProcedureGraphTraversal {
   @Procedure(mode = Mode.WRITE, name = ProcedureName.FORWARD_PATH)
   @Description("Executes a forward path calculation.")
   public void forwardPath(@Name("Start node") Node startNode) {
+    /* Set earliest start and earliest finish on startNode */
+    Action.setEarliestStart(startNode, 0l);
+    Action.setEarliestFinish(startNode, 0l);
+
     /* create queue that contains the current nodes by
      * fetching all relationships that are outgoing from startNode,
      * fetching all the end nodes of all relationships and collecting
@@ -76,8 +80,10 @@ public class ProcedureGraphTraversal {
     }
   }
 
+  // region forwardPath helper methods
+
   /**
-   * This private (!) method adds node's "earliestStart" and "duration" properties
+   * This private method adds node's "earliestStart" and "duration" properties
    * to obtain its "earliestFinish" property. The property is written on the node if
    * "earliestStart" and "duration" properties both exist on node.
    * @param node: the node that the "earliestFinish" property should be calculated for
@@ -96,7 +102,7 @@ public class ProcedureGraphTraversal {
   }
 
   /**
-   * This private (!) method checks all successor nodes
+   * This private method checks all successor nodes
    * of node to see whether their "earliestStart" property can already
    * be calculated, i.e. all of their predecessors have already
    * a calculated "earliestFinish" value.
@@ -126,7 +132,7 @@ public class ProcedureGraphTraversal {
   }
 
   /**
-   * This private (!) method looks at all predecessors of node.
+   * This private method looks at all predecessors of node.
    * If all of them have "earliestFinish" values, their maximum yields the
    * node's "earliestStart" value which is set. If one node is found that
    * does not have an "earliestFinish" value yet, the search is terminated
@@ -153,7 +159,7 @@ public class ProcedureGraphTraversal {
       /* fetch the "earliestFinish" property of predecessorNode.
        * If the property does not exist that means that predecessorNode has
        * not yet been processed. Hence, we can stop checking on the rest
-       * of the predecessor nodes of successorNode. The return command
+       * of the predecessor nodes of node. The return command
        * in the catch part will quit this method and report back about it.*/
       long predecessorNodeEarliestFinish;
       try {
@@ -174,8 +180,8 @@ public class ProcedureGraphTraversal {
     /* if every predecessorNode had an "earliestFinish" value, we found the
      * maximum of them in maxEarliestFinish. Hence, there are no
      * additional checks needed and we can set the "earliestStart" property
-     * of successorNode to be maxEarliestFinish and return true so that
-     * successorNode can be added to the currentNodes queue
+     * of node to be maxEarliestFinish and return true so that
+     * node can be added to the currentNodes queue
      * higher up in the call stack.
      */
     if (!incomingRelsIt.hasNext()) {
@@ -183,4 +189,6 @@ public class ProcedureGraphTraversal {
     }
     return true;
   }
+
+  // endregion
 }
