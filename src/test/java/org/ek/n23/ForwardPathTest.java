@@ -27,7 +27,7 @@ class ForwardPathTest extends TestBase {
   @Override
   protected InputStream inputStreamOfCypherFile() {
     // read in the cypher file in the folder test/resources
-    return getClass().getResourceAsStream("/projectSchedule.cypher");
+    return getClass().getResourceAsStream("/projectScheduleForward.cypher");
   }
 
   @Override
