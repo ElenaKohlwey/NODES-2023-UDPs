@@ -26,6 +26,8 @@ public class Action {
   public static final String DURATION_KEY = "duration";
   public static final String EARLIEST_START_KEY = "earliestStart";
   public static final String EARLIEST_FINISH_KEY = "earliestFinish";
+  public static final String LATEST_START_KEY = "latestStart";
+  public static final String LATEST_FINISH_KEY = "latestFinish";
 
   // takes a number and returns LABEL_NAME + number as a String
   public static String transformToNodeName(int number) {
@@ -71,6 +73,14 @@ public class Action {
     return (long) actionNode.getProperty(EARLIEST_FINISH_KEY);
   }
 
+  public static long getLatestStart(Node actionNode) throws NotFoundException {
+    return (long) actionNode.getProperty(LATEST_START_KEY);
+  }
+
+  public static long getLatestFinish(Node actionNode) throws NotFoundException {
+    return (long) actionNode.getProperty(LATEST_FINISH_KEY);
+  }
+
   // endregion
 
   // region setters
@@ -81,6 +91,14 @@ public class Action {
 
   public static void setEarliestFinish(Node actionNode, long value) {
     actionNode.setProperty(EARLIEST_FINISH_KEY, value);
+  }
+
+  public static void setLatestStart(Node actionNode, long value) {
+    actionNode.setProperty(LATEST_START_KEY, value);
+  }
+
+  public static void setLatestFinish(Node actionNode, long value) {
+    actionNode.setProperty(LATEST_FINISH_KEY, value);
   }
 
   // endregion
