@@ -17,6 +17,9 @@ import org.neo4j.graphdb.Transaction;
  */
 public class Action {
 
+  // private constructor
+  private Action() {}
+
   // Label of the Action node
   public static final String LABEL_NAME = "Action";
   public static final Label LABEL = Label.label(LABEL_NAME);
