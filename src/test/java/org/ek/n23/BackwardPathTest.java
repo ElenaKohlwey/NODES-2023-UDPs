@@ -90,7 +90,6 @@ class BackwardPathTest extends TestBase {
       }
       latestStart = nodeRecord.get(Action.LATEST_START_KEY, -1l);
       latestFinish = nodeRecord.get(Action.LATEST_FINISH_KEY, -1l);
-      System.out.println(result.getKey());
       assertEquals(result.getValue()[0], latestStart);
       assertEquals(result.getValue()[1], latestFinish);
     }

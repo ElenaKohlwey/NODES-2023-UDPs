@@ -67,6 +67,9 @@ class GenerateGraphFromConfigNodeTest extends TestBase {
 
   @Test
   void createdGraphMeetsRequirementsSingle() {
+    // clear out the database
+    deleteGraph();
+
     // create graph
     createGraph(-16719473);
 
