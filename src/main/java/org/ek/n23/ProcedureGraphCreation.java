@@ -2,7 +2,6 @@ package org.ek.n23;
 
 import java.util.Random;
 import java.util.TreeSet;
-import java.util.logging.Logger;
 import java.util.stream.Stream;
 import org.ek.n23.entity.Action;
 import org.ek.n23.entity.Config;
@@ -29,10 +28,6 @@ public class ProcedureGraphCreation {
 
   @Context
   public Transaction tx;
-
-  private static Logger logger = Logger.getLogger(
-    ProcedureGraphCreation.class.getName()
-  );
 
   protected static final String NO_SUCH_CONFIG =
     "There is no config object with that name";
