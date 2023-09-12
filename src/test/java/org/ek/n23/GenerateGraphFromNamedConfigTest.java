@@ -15,7 +15,7 @@ import org.neo4j.driver.Record;
 import org.neo4j.driver.Session;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-class GenerateGraphFromConfigNodeTest extends TestBase {
+class GenerateGraphFromNamedConfigTest extends TestBase {
 
   @Override
   protected InputStream inputStreamOfCypherFile() {
