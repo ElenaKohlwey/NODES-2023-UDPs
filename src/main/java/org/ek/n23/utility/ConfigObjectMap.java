@@ -40,11 +40,13 @@ public class ConfigObjectMap {
     this.values = new ArrayList<>();
 
     // convert map of all properties into the two lists
-    for (Map.Entry<String, Object> entry : configNode
+    configNode
       .getAllProperties()
-      .entrySet()) {
-      keys.add(entry.getKey());
-      values.add((long) entry.getValue());
-    }
+      .entrySet()
+      .stream()
+      .forEach(entry -> {
+        keys.add(entry.getKey());
+        values.add((long) entry.getValue());
+      });
   }
 }
