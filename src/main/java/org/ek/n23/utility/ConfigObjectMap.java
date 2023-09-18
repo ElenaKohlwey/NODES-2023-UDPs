@@ -2,7 +2,6 @@ package org.ek.n23.utility;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 import org.neo4j.graphdb.Node;
 
 /**
