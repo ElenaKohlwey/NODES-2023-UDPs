@@ -295,15 +295,14 @@ public class ProcedureGraphCreation {
     TreeSet<Node> actionNodes
   ) {
     String name;
-    int duration = 0;
 
     // Create start node
     name = Action.transformToNodeName(0);
-    Node startNode = Action.createNode(tx, name, duration);
+    Node startNode = Action.createEndNode(tx, name);
 
     // Create end node
     name = Action.transformToNodeName(actionNodes.size() + 1);
-    Node endNode = Action.createNode(tx, name, duration);
+    Node endNode = Action.createEndNode(tx, name);
 
     // connect start to all starting nodes
     for (Node startingNode : startingNodes) {

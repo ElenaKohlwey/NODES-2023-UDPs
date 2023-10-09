@@ -22,7 +22,9 @@ public class Action {
 
   // Label of the Action node
   public static final String LABEL_NAME = "Action";
+  public static final String END_LABEL_NAME = "End";
   public static final Label LABEL = Label.label(LABEL_NAME);
+  public static final Label END_LABEL = Label.label(END_LABEL_NAME);
 
   // Property keys of the Action node
   public static final String NAME_KEY = "name";
@@ -51,6 +53,25 @@ public class Action {
     // sets properties
     newNode.setProperty(NAME_KEY, name);
     newNode.setProperty(DURATION_KEY, duration);
+
+    // returns the created node
+    return newNode;
+  }
+
+  /**
+   * This method creates a new Action End node in the database
+   * @param tx: transaction object
+   * @param name: name property of new Action node
+   * @return the newly created Action node object
+   */
+  public static Node createEndNode(Transaction tx, String name) {
+    // create node in db
+    Node newNode = tx.createNode(LABEL);
+    newNode.addLabel(END_LABEL);
+
+    // sets properties
+    newNode.setProperty(NAME_KEY, name);
+    newNode.setProperty(DURATION_KEY, 0);
 
     // returns the created node
     return newNode;
