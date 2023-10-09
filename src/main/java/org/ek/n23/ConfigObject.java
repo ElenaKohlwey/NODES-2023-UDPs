@@ -25,11 +25,29 @@ public class ConfigObject {
     .setStartingNodesCount(1, 10)
     .setOutgoingRelationsCount(1, 5);
 
-  public static final ConfigObject MyFirstConfig = new ConfigObject("NODES2023")
-    .setActionCount(42, 345)
+  public static final ConfigObject NodesConfig100 = new ConfigObject(
+    "NODES2023-100"
+  )
+    .setActionCount(90, 110)
     .setActionDuration(3, 20)
     .setStartingNodesCount(1, 5)
-    .setOutgoingRelationsCount(1, 2);
+    .setOutgoingRelationsCount(1, 5);
+
+  public static final ConfigObject NodesConfig1000 = new ConfigObject(
+    "NODES2023-1000"
+  )
+    .setActionCount(990, 1010)
+    .setActionDuration(3, 20)
+    .setStartingNodesCount(1, 5)
+    .setOutgoingRelationsCount(1, 5);
+
+  public static final ConfigObject NodesConfig10000 = new ConfigObject(
+    "NODES2023-10000"
+  )
+    .setActionCount(9990, 10010)
+    .setActionDuration(3, 20)
+    .setStartingNodesCount(1, 5)
+    .setOutgoingRelationsCount(1, 5);
 
   // region static stuff
 
