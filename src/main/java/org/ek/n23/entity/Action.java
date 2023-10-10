@@ -71,7 +71,7 @@ public class Action {
 
     // sets properties
     newNode.setProperty(NAME_KEY, name);
-    newNode.setProperty(DURATION_KEY, 0);
+    newNode.setProperty(DURATION_KEY, 0l);
 
     // returns the created node
     return newNode;
