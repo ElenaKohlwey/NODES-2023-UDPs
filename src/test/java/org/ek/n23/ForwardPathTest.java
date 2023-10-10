@@ -33,7 +33,7 @@ class ForwardPathTest extends TestBase {
   @Override
   protected Stream<Class<?>> procedureClasses() {
     // state the class (or classes) that these tests apply to
-    return Stream.of(ProcedureGraphTraversal.class);
+    return Stream.of(ProcedureForwardPath.class);
   }
 
   @Override
@@ -45,7 +45,7 @@ class ForwardPathTest extends TestBase {
         "MATCH (a:%s {%s:'Start'}) CALL %s(a)",
         Action.LABEL_NAME,
         Action.NAME_KEY,
-        ProcedureGraphTraversal.ProcedureName.FORWARD_PATH
+        ProcedureName.FORWARD_PATH
       ),
     };
   }
